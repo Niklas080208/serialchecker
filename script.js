@@ -263,10 +263,8 @@ const checkSerial = debounce((serial) => {
     return;
   }
 
-  // Show model information
-  showModelInfo(prefix);
-
   if (patchedPrefixes.has(prefix)) {
+    showModelInfo(prefix);
     updateResult(messages.patched, explanationMessages.patched, 'danger');
     showGuides('patched');
     return;
@@ -278,6 +276,7 @@ const checkSerial = debounce((serial) => {
     return;
   }
 
+  showModelInfo(prefix);
   const [unpatched, maybe] = config;
   if (number <= unpatched) {
     updateResult(messages.unpatched, explanationMessages.unpatched, 'success');
