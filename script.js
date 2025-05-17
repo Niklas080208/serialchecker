@@ -36,7 +36,7 @@ const serialConfig = {
 };
 
 const messages = {
-  unpatched: "✅ Unpatched – CFW möglich!",
+  unpatched: "✅ Unpatched – CFW ohne Modchip möglich!",
   maybe: "⚠️ Vielleicht – 50/50 Chance.",
   patched: "❌ Gepatcht – keine CFW ohne Modchip.",
   tooShort: "❗ Seriennummer zu kurz – bitte vollständige Nummer eingeben.",
