@@ -55,33 +55,31 @@ const explanationMessages = {
 // Set of known patched prefixes for O(1) lookup
 const patchedPrefixes = new Set([
   // Mariko (HAC-001(-01)) combinations
-  'XKC1', // China
-  'XKE1', // Europe
-  'XKJ1', // Japan
-  'XKK1', // Korea
-  'XKL1', // Development
-  'XKM1', // Malaysia
-  'XKW1', // Americas
+  'XKC', // China
+  'XKE', // Europe
+  'XKJ', // Japan
+  'XKK', // Korea
+  'XKL', // Development
+  'XKM', // Malaysia
+  'XKW', // Americas
   
   // OLED (HEG-001) combinations
-  'XTC1', // China
-  'XTE1', // Europe
-  'XTJ1', // Japan
-  'XTJ2', // Japan
-  'XTJ5', // Japan
-  'XTK1', // Korea
-  'XTL1', // Development
-  'XTM1', // Malaysia
-  'XTW1', // Americas
+  'XTC', // China
+  'XTE', // Europe
+  'XTJ', // Japan
+  'XTK', // Korea
+  'XTL', // Development
+  'XTM', // Malaysia
+  'XTW', // Americas
 
   // Switch Lite (HDH-001) combinations
-  'XJC1', // China
-  'XJE1', // Europe
-  'XJJ1', // Japan
-  'XJK1', // Korea
-  'XJL1', // Development
-  'XJM1', // Malaysia
-  'XJW1'  // Americas
+  'XJC', // China
+  'XJE', // Europe
+  'XJJ', // Japan
+  'XJK', // Korea
+  'XJL', // Development
+  'XJM', // Malaysia
+  'XJW'  // Americas
 ]);
 
 // Model information configuration
@@ -180,10 +178,11 @@ function updateResult(result, explanation, type) {
 function showModelInfo(prefix) {
   let model;
   
-  // Determine model based on prefix
-  if (patchedPrefixes.has(prefix)) {
-    if (prefix.startsWith('XJ')) model = modelInfo.HDH001;
-    else if (prefix.startsWith('XT')) model = modelInfo.HEG001;
+  // Determine model based on prefix (using first 3 characters)
+  const prefix3 = prefix.slice(0, 3);
+  if (patchedPrefixes.has(prefix3)) {
+    if (prefix3.startsWith('XJ')) model = modelInfo.HDH001;
+    else if (prefix3.startsWith('XT')) model = modelInfo.HEG001;
     else model = modelInfo.HAC001_01;
   } else {
     model = modelInfo.HAC001;
@@ -257,6 +256,7 @@ const checkSerial = debounce((serial) => {
   }
 
   const prefix = serial.slice(0, 4);
+  const prefix3 = prefix.slice(0, 3);
   const number = parseInt(serial.slice(4, 14));
 
   if (isNaN(number)) {
@@ -264,7 +264,7 @@ const checkSerial = debounce((serial) => {
     return;
   }
 
-  if (patchedPrefixes.has(prefix)) {
+  if (patchedPrefixes.has(prefix3)) {
     showModelInfo(prefix);
     updateResult(messages.patched, explanationMessages.patched, 'danger');
     showGuides('patched');
