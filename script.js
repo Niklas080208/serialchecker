@@ -67,6 +67,7 @@ const patchedPrefixes = new Set([
   'XTC1', // China
   'XTE1', // Europe
   'XTJ1', // Japan
+  'XTJ2', // Japan
   'XTJ5', // Japan
   'XTK1', // Korea
   'XTL1', // Development
