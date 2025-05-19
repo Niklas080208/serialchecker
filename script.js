@@ -85,7 +85,7 @@ const patchedPrefixes = new Set([
 // Model information configuration
 const modelInfo = {
   HAC001: {
-    name: 'Nintendo Switch (Original)',
+    name: 'Nintendo Switch (Original) (V1)',
     image: 'https://i.imgur.com/B2qzwtH.png',
     details: {
       'Display': '6.2" LCD (720p)',
@@ -96,7 +96,7 @@ const modelInfo = {
     }
   },
   HAC001_01: {
-    name: 'Nintendo Switch (Verbesserte Akkulaufzeit)',
+    name: 'Nintendo Switch (Verbesserte Akkulaufzeit) (V2)',
     image: 'https://i.imgur.com/t9l6zpm.png',
     details: {
       'Display': '6.2" LCD (720p)',
