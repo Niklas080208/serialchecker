@@ -135,7 +135,7 @@ const guideInfo = {
   unpatched: [
     {
       title: '📷 Niklas CFW Guide',
-      url: 'https://www.youtube.com/watch?v=jMjc1DYtJKE',
+      url: 'https://youtu.be/hYoEoa9p_P0?si=bE2faptffgLtNahe',
       description: 'Anleitung zur Installation von Atmosphere CFW'
     }
   ],
